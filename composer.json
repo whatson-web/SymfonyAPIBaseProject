@@ -1,16 +1,7 @@
 {
-    "name": "api-platform/api-platform",
+    "name": "whatson-web/SymfonyAPIBaseProject",
     "license": "MIT",
     "type": "project",
-    "description": "The API Platform framework",
-    "homepage": "https://api-platform.com",
-    "authors": [
-        {
-            "name": "Kévin Dunglas",
-            "email": "dunglas@gmail.com",
-            "homepage": "https://dunglas.fr"
-        }
-    ],
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
