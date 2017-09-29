@@ -10,13 +10,27 @@ doctrine:
 monolog:
     handlers:
         main:
-            type: fingers_crossed
+            type:         fingers_crossed
             action_level: error
-            handler: nested
+            handler:      nested
+        mail:
+            type:         fingers_crossed
+            action_level: critical
+            handler:      deduplicated
+        deduplicated:
+            type:    deduplication
+            handler: swift
         nested:
-            type: stream
-            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
         console:
-            type: console
-            process_psr_3_messages: false
+            type:  console
+        swift:
+            type:       swift_mailer
+            from_email: '%project_name_slug%@whatson-web.com'
+            to_email:   'logs@whatson-web.com'
+            subject:    '%project_name% - Erreur détectée : %%message%%'
+            level:      debug
+            formatter:  monolog.formatter.html
+            content_type: text/html
