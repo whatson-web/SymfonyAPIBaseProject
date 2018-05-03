@@ -1,18 +1,43 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+
     providers:
-        in_memory: { memory: ~ }
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
     firewalls:
+        login:
+            pattern:  ^/login
+            stateless: true
+            anonymous: true
+            provider: fos_userbundle
+            json_login:
+                check_path: api_login_check
+                username_path: email
+                password_path: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            logout:
+                path: api_logout
+
+        main:
+            pattern:   ^/
+            provider: fos_userbundle
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: ~
 
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # https://symfony.com/doc/current/security/form_login_setup.html
+    access_control:
+        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: (?:^/api/$)|(?:^/api/docs)|(?:^api/contexts/), roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/api, roles: [ ROLE_ADMIN ] }

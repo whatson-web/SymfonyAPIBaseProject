@@ -1,0 +1,5 @@
+api_login_check:
+    path: /login_check
+
+api_logout:
+    path: /logout

@@ -1,0 +1,4 @@
+swiftmailer:
+    transport: "mailgun"
+    spool:
+        type: memory
