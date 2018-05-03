@@ -1,5 +1,0 @@
-build:
-    environment:
-        php: '7.1.12'
-checks:
-    php: true
