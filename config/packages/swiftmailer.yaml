@@ -1,4 +1,4 @@
 swiftmailer:
-    transport: "mailgun"
-    spool:
-        type: memory
+    transport: gmail
+    username: '%env(GMAIL_USERNAME)%'
+    password: '%env(GMAIL_PASSWORD)%'

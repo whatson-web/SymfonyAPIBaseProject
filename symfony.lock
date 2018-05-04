@@ -14,14 +14,8 @@
     "api-platform/schema-generator": {
         "version": "v2.1.0-beta.1"
     },
-    "clue/stream-filter": {
-        "version": "v1.4.0"
-    },
     "composer/semver": {
         "version": "1.4.2"
-    },
-    "cspoo/swiftmailer-mailgun-bundle": {
-        "version": "dev-master"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -110,15 +104,6 @@
             "ref": "a66e8a7b75a1825cf2414d5dd53c7ed38c8654d1"
         }
     },
-    "mailgun/mailgun-php": {
-        "version": "2.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.3",
-            "ref": "d3188b6cdc58f877ef2884b55ac4798640b4b9be"
-        }
-    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
@@ -139,30 +124,6 @@
     },
     "php-cs-fixer/diff": {
         "version": "v1.2.0"
-    },
-    "php-http/client-common": {
-        "version": "1.7.0"
-    },
-    "php-http/discovery": {
-        "version": "1.4.0"
-    },
-    "php-http/guzzle6-adapter": {
-        "version": "v1.1.1"
-    },
-    "php-http/httplug": {
-        "version": "v1.1.0"
-    },
-    "php-http/message": {
-        "version": "1.6.0"
-    },
-    "php-http/message-factory": {
-        "version": "v1.0.2"
-    },
-    "php-http/multipart-stream-builder": {
-        "version": "1.0.0"
-    },
-    "php-http/promise": {
-        "version": "v1.0.0"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -241,9 +202,6 @@
             "version": "1.0",
             "ref": "cc1afd81841db36fbef982fe56b48ade6716fac4"
         }
-    },
-    "symfony/force-lowest": {
-        "version": "v3.4.0"
     },
     "symfony/form": {
         "version": "v4.0.9"

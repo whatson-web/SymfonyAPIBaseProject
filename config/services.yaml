@@ -12,6 +12,14 @@ services:
                             # fetching services directly from the container via $container->get() won't work.
                             # The best practice is to be explicit about your dependencies anyway.
 
+    App\Email\:
+        resource: '../src/Email/*'
+        exclude: '../src/Email/{Entity,Migrations,Tests}'
+
     App\User\:
         resource: '../src/User/*'
         exclude: '../src/User/{Entity,Migrations,Tests}'
+
+    App\User\Action\:
+        resource: '../src/User/Action/*'
+        public: true

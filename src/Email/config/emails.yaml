@@ -1,0 +1,14 @@
+default:
+    from:
+        email: 'dev@whatson-web.com'
+        name: 'Nouveau projet'
+templates:
+    manuel_reset_password:
+        subject: "Envoi d'un nouveau mot de passe"
+        view: 'Email/manuel_reset_password.html.twig'
+        object: 'App\User\Event\ManuelResetPasswordEvent'
+        to: 'user.email'
+        variables:
+            NEW_PASSWORD:
+                type: 'getter'
+                getter: 'newPlainPassword'
